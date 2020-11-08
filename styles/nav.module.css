@@ -2,4 +2,8 @@
     margin: 0 auto;
     width: 80%;
     padding: 10px 0px;
+    /* text-align: center; */
+}
+.nav a:hover {
+    text-decoration: none;
 }

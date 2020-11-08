@@ -7,29 +7,40 @@ function index() {
   return <Fragment>
     <Nav />
     <div className={styles.content}>
-      <p>Congrats, you've found me!</p>
-      <p>My interests: <br />
-        - economics<br />
-        - psychology<br />
-        - cryptography<br />
-        - cybersecurity<br />
-        - hard sciences</p>
-      <p>
-        What I've done:<br />
-          - Advised various federal government agencies on modernization & security.<br />
-            - Built matching engines, derivatives products, OTC platforms, credit card gateway, aml/kyc pipelines<br />
-              - Dealt with clearing houses, custodians, private banks, shadow banks, dark pools<br />
-                - Bluetooth, wifi protocols, nfc for IoT<br />
-                  - Bitcoin: btcd, p2sh, payment channels<br />
-                    - Ethereum: core dev in 2014, wrote first node implementation: geth, go-ethereum, cpp-ethereum/aleth</p>
-                  <p>
-                    What I do:<br />
-- Golang, Rust, Node.js, Swift, React / React Native<br />
-- Exotic/unusual asset classes/commodities<br />
-- Federal Contracting: Interesting in prime/sub/joint ventures in the areas of modernization, cloud, security<br />
-- Angel investing: interested in niche businesses with persistent founders. Standard SAFE(yc)/KISS(500) possible</p>
+      <h3>My interests:</h3>
+      <ul>
+        <li>Economics</li>
+        <li>Psychology</li>
+        <li>Cryptography</li>
+        <li>Cybersecurity</li>
+        <li>Hard sciences</li>
+      </ul>
 
-                  <p>Thanks for stopping by, you can reach me at: <br /> <a href="https://linkedin.com/in/josephyzhou">LinkedIn</a> | <a href="https://twitter.com/josephzhou">Twitter</a></p>
+      <h3>What I've done:</h3>
+      <ul>
+        <li>Advised various federal government agencies on modernization & security.</li>
+        <li>Built matching engines, derivatives products, OTC platforms, credit card gateway, aml/kyc pipelines</li>
+        <li>Dealt with clearing houses, custodians, private banks, shadow banks, dark pools</li>
+        <li>Bluetooth, wifi protocols, nfc for IoT</li>
+        <li>Bitcoin: btcd, p2sh, payment channels</li>
+        <li>Ethereum: core dev in 2014, wrote first node implementation: geth, go-ethereum, cpp-ethereum/aleth</li>
+      </ul>
+
+      <h3>What I do:</h3>
+      <ul>
+        <li>Golang, Rust, Node.js, Swift, React / React Native</li>
+        <li>Exotic/unusual asset classes/commodities</li>
+        <li>Federal Contracting: Interesting in prime/sub/joint ventures in the areas of modernization, cloud, security</li>
+        <li>Angel investing: interested in niche businesses with persistent founders. Standard SAFE(yc)/KISS(500) possible</li>
+      </ul>
+
+      <h3>Social:</h3>
+      <ul>
+        <li><a href="https://linkedin.com/in/josephyzhou">LinkedIn</a></li>
+        <li><a href="https://twitter.com/josephzhou">Twitter</a></li>
+      </ul>
+
+      <p>Thanks for stopping by! - J.Z.</p>
     </div>
   </Fragment>
 }

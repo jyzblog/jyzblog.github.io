@@ -4,3 +4,22 @@
     width: 80%;
     padding: 15px 0px;
 }
+.content ul {
+    list-style-type: "- ";
+    padding-left: 15px;
+}
+.content a:hover {
+    text-decoration: none;
+}
+
+.title {
+    padding: 3px;
+    font-weight: bold;
+}
+.hashtags {
+    font-size: smaller;
+    padding: 3px;
+
+    font-weight: thin;
+    color: #888
+}
