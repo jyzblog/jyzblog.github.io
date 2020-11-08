@@ -7,8 +7,19 @@ function books() {
   return (
     <Fragment>
       <Nav />
+
+      <div className={styles.toc}>
+        <h4>Table of Content</h4>
+        <div>
+          <a href="#history">History</a>
+          <a href="#investing">Investing</a>
+          <a href="#startup">Startup</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#biography">Biography</a>
+        </div>
+      </div>
       <div className={styles.content}>
-        <h3>History / Macroeconomics:</h3>
+        <h3 id="history">History / Macroeconomics:</h3>
         <ul>
           <Book
             title="Sapiens: A Brief History of Humankind"
@@ -131,7 +142,7 @@ function books() {
             hashtags={['banking', 'economics']}
           />
         </ul>
-        <h3>Investing:</h3>
+        <h3 id="investing">Investing:</h3>
         <ul>
           <Book
             title="University of Berkshire Hathaway: 30 Years of Lessons Learned from Warren Buffett & Charlie Munger at the Annual Shareholders Meeting"
@@ -242,7 +253,7 @@ function books() {
             hashtags={['China', 'economics', 'history', 'investing']}
           />
         </ul>
-        <h3>Startup:</h3>
+        <h3 id="startup">Startup:</h3>
         <ul>
           <Book
             title="Zero to One"
@@ -341,7 +352,7 @@ function books() {
             hashtags={['VC']}
           />
         </ul>
-        <h3>Leadership / Management:</h3>
+        <h3 id="leadership">Leadership / Management:</h3>
         <ul>
           <Book
             title="The Culture Code: The Secrets of Highly Successful Groups"
@@ -398,7 +409,7 @@ function books() {
             hashtags={['leadership']}
           />
         </ul>
-        <h3>Biography:</h3>
+        <h3 id="biography">Biography:</h3>
         <ul>
           <Book
             title="Lee Kuan Yew"
