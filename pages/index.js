@@ -11,6 +11,7 @@ function index() {
         <h3>My interests:</h3>
         <ul>
           <li>Economics</li>
+          <li>History</li>
           <li>Psychology</li>
           <li>Cryptography</li>
           <li>Cybersecurity</li>
