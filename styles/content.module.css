@@ -30,7 +30,13 @@
 .content a:hover {
   text-decoration: none;
 }
-
+.content .post {
+  font-size: smaller;
+  padding: 3px;
+  font-weight: thin;
+  color: #888;
+  margin-top: -2px;
+}
 .title {
   padding: 3px;
   font-weight: bold;
@@ -38,7 +44,6 @@
 .hashtags {
   font-size: smaller;
   padding: 3px;
-
   font-weight: thin;
   color: #888;
 }
