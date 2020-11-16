@@ -26,7 +26,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: {
-      content: `# ${post.title}\n#### ${formattedDate}\n${content}`,
+      content: `# ${post.title}\n*${formattedDate}*\n${content}`,
     },
   };
 }
