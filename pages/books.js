@@ -249,7 +249,7 @@ function books() {
           />
           <Book
             title="文明、现代化、价值投资与中国"
-            address="https://google.com/"
+            address="https://item.jd.com/12638689.html"
             author="Li Lu"
             hashtags={['China', 'economics', 'history', 'investing']}
           />
