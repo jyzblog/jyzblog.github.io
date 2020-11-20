@@ -14,7 +14,7 @@ function nav() {
         <a>Books</a>
       </Link>{' '}
       |{' '}
-      <Link href="https://medium.com/@jyz">
+      <Link href="/writings" as={'/writings'}>
         <a>Writings</a>
       </Link>
     </nav>

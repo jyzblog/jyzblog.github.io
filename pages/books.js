@@ -16,6 +16,7 @@ function books() {
           <a href="#startup">Startup</a>
           <a href="#leadership">Leadership</a>
           <a href="#biography">Biography</a>
+          <a href="#industries">Industries</a>
         </div>
       </div>
       <div className={styles.content}>
@@ -544,7 +545,7 @@ function books() {
             hashtags={['UnitedStates', 'finance', 'oil']}
           />
         </ul>
-        <h3>Industries:</h3>
+        <h3 id="industries">Industries:</h3>
         <ul>
           <Book
             title="The Song Machine: Inside the Hit Factory"
