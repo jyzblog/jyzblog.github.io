@@ -32,7 +32,7 @@ function books() {
             title="Americana: A 400-Year History of American Capitalism"
             address="https://amzn.to/2JFdZf6"
             author="Bhu Srinivasan"
-            hashtags={['UnitedStates', 'industries', 'history']}
+            hashtags={['United States', 'capitalism', 'industries']}
           />
           <Book
             title="Energy and Civilization: A History"
@@ -44,25 +44,25 @@ function books() {
             title="Guns, Germs, and Steel"
             address="https://amzn.to/32okxp2"
             author="Jared Diamond"
-            hashtags={['civilization', 'history']}
+            hashtags={['civilization']}
           />
           <Book
             title="The Lessons of History"
             address="https://amzn.to/32m6m3I"
             author="Will Durant"
-            hashtags={['evolution', 'history']}
+            hashtags={['evolution']}
           />
           <Book
             title="The Path Between the Seas: The Creation of the Panama Canal, 1870-1914"
             address="https://amzn.to/2U1BT6C"
             author="David McCullough"
-            hashtags={['UnitedStates', 'Latin America', 'history']}
+            hashtags={['United States', 'Latin America']}
           />
           <Book
             title="Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific Problem of His Time"
             address="https://amzn.to/368579i"
             author="David Sobel"
-            hashtags={['Europe', 'chronometer', 'astronomy', 'history']}
+            hashtags={['Europe', 'chronometer', 'astronomy']}
           />
           <Book
             title="The Sovereign Individual: Mastering the Transition to the Information Age"
@@ -74,13 +74,13 @@ function books() {
             title="Divine Fury: A History of Genius"
             address="https://amzn.to/3laMtUP"
             author="Darrin M. McMahon"
-            hashtags={['genius', 'history']}
+            hashtags={['genius']}
           />
           <Book
             title="The 48 Laws of Power"
             address="https://amzn.to/3k9Mp6v"
             author="Robert Greene"
-            hashtags={['economics']}
+            hashtags={['economics', 'power']}
           />
           <Book
             title="The Rise and Fall of the Third Reich: A History of Nazi Germany"
@@ -422,31 +422,31 @@ function books() {
             title="Steve Jobs"
             address="https://amzn.to/3eCBgcZ"
             author="Walter Isaacson"
-            hashtags={['UnitedStates', 'tech', 'Apple']}
+            hashtags={['United States', 'tech', 'Apple']}
           />
           <Book
             title="Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future"
             address="https://amzn.to/2Ibb5Oy"
             author="Ashlee Vance"
-            hashtags={['UnitedStates', 'tech', 'energy', 'Tesla', 'SpaceX']}
+            hashtags={['United States', 'tech', 'energy', 'Tesla', 'SpaceX']}
           />
           <Book
             title="Sons of Wichita: How the Koch Brothers Became America's Most Powerful and Private Dynasty"
             address="https://amzn.to/3l9oup5"
             author="Daniel Schulman"
-            hashtags={['UnitedStates', 'politics']}
+            hashtags={['United States', 'politics']}
           />
           <Book
             title="Kochland: The Secret History of Koch Industries and Corporate Power in America"
             address="https://amzn.to/3n6VJKf"
             author="Christopher Leonard"
-            hashtags={['UnitedStates', 'politics']}
+            hashtags={['United States', 'politics']}
           />
           <Book
             title="King Icahn: The Biography of a Renegade Capitalist"
             address="https://amzn.to/3lbHovd"
             author="Mark Stevens"
-            hashtags={['UnitedStates', 'finance', 'politics']}
+            hashtags={['United States', 'finance', 'politics']}
           />
           <Book
             title="MBS: The Rise to Power of Mohammed bin Salman"
@@ -482,7 +482,7 @@ function books() {
             title="Bad Blood: Secrets and Lies in a Silicon Valley Startup"
             address="https://amzn.to/2GD7s3p"
             author="John Carreyrou"
-            hashtags={['UnitedStates', 'ElizabethHolmes', 'fraud']}
+            hashtags={['United States', 'ElizabethHolmes', 'fraud']}
           />
           <Book
             title="Kingpin: How One Hacker Took Over the Billion-Dollar Cybercrime Underground"
@@ -506,43 +506,43 @@ function books() {
             title="Benjamin Franklin: An American Life"
             address="https://amzn.to/3lezGRa"
             author="Walter Isaacson"
-            hashtags={['UnitedStates', 'politics', 'inventor']}
+            hashtags={['United States', 'politics', 'inventor']}
           />
           <Book
             title="Alexander Hamilton"
             address="https://amzn.to/3laUgSz"
             author="Ron Chernow"
-            hashtags={['UnitedStates', 'politics']}
+            hashtags={['United States', 'politics']}
           />
           <Book
             title="Einstein: His Life and Universe"
             address="https://amzn.to/32oquCx"
             author="Walter Isaacson"
-            hashtags={['UnitedStates', 'physics']}
+            hashtags={['United States', 'physics']}
           />
           <Book
             title="Genius: The Life and Science of Richard Feynman"
             address="https://amzn.to/38iWgVb"
             author="James Gleick"
-            hashtags={['UnitedStates', 'physics']}
+            hashtags={['United States', 'physics']}
           />
           <Book
             title="Titan: The Life of John D. Rockefeller, Sr."
             address="https://amzn.to/3n2u64P"
             author="Ron Chernow"
-            hashtags={['UnitedStates', 'oil']}
+            hashtags={['United States', 'oil']}
           />
           <Book
             title="The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance"
             address="https://amzn.to/3p8sAQA"
             author="Ron Chernow"
-            hashtags={['UnitedStates', 'finance', 'banking']}
+            hashtags={['United States', 'finance', 'banking']}
           />
           <Book
             title="Andrew Carnegie"
             address="https://amzn.to/3k8J4o9"
             author="David Nasaw"
-            hashtags={['UnitedStates', 'finance', 'oil']}
+            hashtags={['United States', 'finance', 'oil']}
           />
         </ul>
         <h3 id="industries">Industries:</h3>
@@ -605,19 +605,19 @@ function books() {
             title="Shoe Dog: A Memoir by the Creator of Nike"
             address="https://amzn.to/3p766PV"
             author="Phil Knight"
-            hashtags={['retail', 'starbucks']}
+            hashtags={['retail', 'nike']}
           />
           <Book
             title="The Everything Store: Jeff Bezos and the Age of Amazon"
             address="https://amzn.to/2GERJRz"
             author="Brad Stone"
-            hashtags={['retail', 'amazon', 'UnitedStates']}
+            hashtags={['retail', 'amazon']}
           />
           <Book
             title="BARE ESSENTIALS: The ALDI Way to Retail Success"
             address="https://amzn.to/3lbllF0"
             author="Dieter Brandes"
-            hashtags={['retail', 'aldi', 'UnitedStates']}
+            hashtags={['retail', 'aldi']}
           />
           <Book
             title="Alibaba: The House That Jack Ma Built"
@@ -635,7 +635,7 @@ function books() {
             title="The Idea Factory: Bell Labs and the Great Age of American Innovation"
             address="https://amzn.to/3eKckk4"
             author="Jon Gertner"
-            hashtags={['tech', 'BellLabs', 'SiliconValley']}
+            hashtags={['tech', 'Bell Labs', 'Silicon Valley']}
           />
           <Book
             title="Empires of Light: Edison, Tesla, Westinghouse, and the Race to Electrify the World"
@@ -695,7 +695,7 @@ function books() {
             title="Steel: From Mine to Mill, the Metal that Made America"
             address="https://amzn.to/3eOv7uF"
             author="Brooke Stoddard"
-            hashtags={['steel', 'material']}
+            hashtags={['infrastructure', 'steel', 'material']}
           />
           <Book
             title="Ninety Percent of Everything: Inside Shipping, the Invisible Industry That Puts Clothes on Your Back, Gas in Your Car, and Food on Your Plate"
@@ -713,7 +713,7 @@ function books() {
             title="Napoleon's Buttons: How 17 Molecules Changed History"
             address="https://amzn.to/2I8T4kq"
             author="Penny Couteur"
-            hashtags={['chemistry']}
+            hashtags={['chemistry', 'material']}
           />
           <Book
             title="A History of World Agriculture: From the Neolithic Age to the Current Crisis"
@@ -731,13 +731,13 @@ function books() {
             title="Cotton: The Biography of a Revolutionary Fiber"
             address="https://amzn.to/38hvbSi"
             author="Stephen Yafa"
-            hashtags={['agriculture']}
+            hashtags={['agriculture', 'food', 'history']}
           />
           <Book
             title="Slaughterhouse: The Shocking Story of Greed, Neglect, And Inhumane Treatment Inside the U.S. Meat Industry"
             address="https://amzn.to/3p7hWtc"
             author="Gail Eisnitz"
-            hashtags={['meat']}
+            hashtags={['meat', 'food']}
           />
           <Book
             title="Samsung Rising: The Inside Story of the South Korean Giant That Set Out to Beat Apple and Conquer Tech"
