@@ -277,7 +277,7 @@ function books() {
           <Book
             title="Business Adventures: Twelve Classic Tales from the World of Wall Street"
             address="https://amzn.to/3k3wgPO"
-            author=""
+            author="John Brooks"
             hashtags={['GatesNotes', 'sales']}
           />
           <Book
