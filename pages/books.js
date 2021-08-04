@@ -614,6 +614,12 @@ function books() {
             hashtags={['retail', 'amazon']}
           />
           <Book
+            title="One Up: Creativity, Competition, and the Global Business of Video Games"
+            address="https://www.amazon.com/One-Up-Creativity-Competition-Business/dp/0231197527"
+            author="Joost van Dreunen"
+            hashtags={['video games', 'e-sports']}
+          />
+          <Book
             title="BARE ESSENTIALS: The ALDI Way to Retail Success"
             address="https://amzn.to/3lbllF0"
             author="Dieter Brandes"
