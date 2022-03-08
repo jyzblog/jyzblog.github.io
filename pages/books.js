@@ -35,6 +35,12 @@ function books() {
             hashtags={['United States', 'capitalism', 'industries']}
           />
           <Book
+            title="Principle: Dealing with The Changing World Order"
+            address="https://www.amazon.com/Changing-World-Order-Nations-Succeed/dp/1982160276/"
+            author="Ray Dalio"
+            hashtags={['Empire', 'Cycles', 'capitalism']}
+          />
+          <Book
             title="Energy and Civilization: A History"
             address="https://amzn.to/32nKx3H"
             author="Vaclav Smil"
