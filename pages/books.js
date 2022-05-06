@@ -620,6 +620,12 @@ function books() {
             hashtags={['retail', 'amazon']}
           />
           <Book
+            title="Working Backwards: Insights, Stories, and Secrets from Inside Amazon"
+            address="https://www.amazon.com/Working-Backwards-Insights-Stories-Secrets/dp/1250267595"
+            author="Collin Bryar, Bill Carr"
+            hashtags={['retail', 'amazon', 'kindle', 'aws', 'prime']}
+          />
+          <Book
             title="One Up: Creativity, Competition, and the Global Business of Video Games"
             address="https://www.amazon.com/One-Up-Creativity-Competition-Business/dp/0231197527"
             author="Joost van Dreunen"
