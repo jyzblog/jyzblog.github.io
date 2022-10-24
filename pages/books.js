@@ -254,6 +254,30 @@ function books() {
             hashtags={[]}
           />
           <Book
+            title="Analysis of financial time series"
+            address="https://www.amazon.com/Analysis-Financial-Time-Ruey-Tsay/dp/0470414359"
+            author="Ruey S. Tsay"
+            hashtags={['quant', 'trading', 'analysis', 'econometrics']}
+          />
+          <Book
+            title="Options, Futures, and Other Derivatives"
+            address="https://www.amazon.com/Options-Futures-Other-Derivatives-Tenth/dp/9352866592"
+            author="John C. Hull"
+            hashtags={['quant', 'derivatives']}
+          />
+          <Book
+            title="Fixed Income Mathematics: Analytical and Statistical Techniques"
+            address="https://www.amazon.com/Fixed-Income-Mathematics-Fifth-Statistical/dp/1264258275"
+            author="Frank Fabozzi"
+            hashtags={['quant', 'mathematics', 'statistics']}
+          />
+          <Book
+            title="Financial Modeling of the Equity Market: From CAPM to Cointegration"
+            address="https://www.amazon.com/Financial-Modeling-Equity-Market-Cointegration/dp/0471699004"
+            author="Frank Fabozzi"
+            hashtags={['quant', 'econometrics', 'modeling']}
+          />
+          <Book
             title="文明、现代化、价值投资与中国"
             address="https://item.jd.com/12638689.html"
             author="Li Lu"
