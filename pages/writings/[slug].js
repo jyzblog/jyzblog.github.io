@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import ReactMarkdown from 'react-markdown/with-html';
+import ReactMarkdown from 'react-markdown';
 import Nav from '../../components/nav';
 import styles from '../../styles/content.module.css';
 import { getPostBySlug, getAllPosts } from '../../lib/api';

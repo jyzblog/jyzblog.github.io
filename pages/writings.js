@@ -15,9 +15,9 @@ function Posts({posts}) {
             <li>
               <strong>
                 <Link href={'/writings/[slug]'} as={`/writings/${slug}`} target="_blank" rel="noopener noreferrer">
-                  <a>
+                  
                     {title}
-                  </a>
+                  
                 </Link>
               </strong>{' '}
               (<small>{date}</small>)<p className={styles.post}>{description}</p>

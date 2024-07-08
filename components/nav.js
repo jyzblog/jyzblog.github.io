@@ -7,15 +7,15 @@ function nav() {
   return (
     <nav className={styles.nav}>
       <Link href="/" as={'/'}>
-        <a>Home</a>
+        Home
       </Link>{' '}
       |{' '}
       <Link href="/books" as={'/books'}>
-        <a>Books</a>
+        Books
       </Link>{' '}
       |{' '}
       <Link href="/writings" as={'/writings'}>
-        <a>Writings</a>
+        Writings
       </Link>
     </nav>
   );
