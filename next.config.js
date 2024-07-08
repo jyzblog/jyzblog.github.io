@@ -1,17 +1,14 @@
-module.exports = {
-  exportPathMap: function () {
-    return {
-      "/": { page: "/" },
-      "/books": { page: "/books" }
-    }
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
   webpack: (config, { dev }) => {
-    config.module.rules = config.module.rules.map(rule => {
-      if(rule.loader === 'babel-loader') {
-        rule.options.cacheDirectory = false
+    config.module.rules.forEach(rule => {
+      if (rule.use && rule.use.loader === 'babel-loader') {
+        rule.use.options.cacheDirectory = false;
       }
-      return rule
-    })
-    return config
+    });
+    return config;
   }
 }
+
+module.exports = nextConfig;

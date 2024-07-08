@@ -10,7 +10,7 @@ function Post({ content }) {
     <Fragment>
       <Nav />
       <article className={styles.content}>
-        <ReactMarkdown escapeHtml={false} source={content} />
+        <ReactMarkdown children={content} />
       </article>
     </Fragment>
   );
