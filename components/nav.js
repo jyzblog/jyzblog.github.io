@@ -15,7 +15,7 @@ function nav() {
       </Link>{' '}
       |{' '}
       <Link href="/writings" as={'/writings'}>
-        Writings
+        Notes
       </Link>
     </nav>
   );
