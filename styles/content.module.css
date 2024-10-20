@@ -18,13 +18,16 @@
 }
 
 .content {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  margin: 0 auto;
-  width: 80%;
-  padding: 15px 0px;
+  background-color: #f5f5dc; /* Warm beige background */
+  color: #333333; /* Dark grey text for easy contrast */
+  font-family: "Georgia", "Times New Roman", serif; /* Good reading fonts */
+  font-size: 18px; /* Slightly larger font for readability */
+  line-height: 1.6; /* Add space between lines for easier reading */
+  margin: 0;
+  padding: 20px;
 }
 .content ul {
-  list-style-type: '- ';
+  list-style-type: "- ";
   padding-left: 15px;
 }
 .content a:hover {
