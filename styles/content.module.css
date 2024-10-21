@@ -1,8 +1,7 @@
 .toc {
-  width: 200px;
   margin: 0 auto;
   padding: 5px 5px;
-  background-color: #eee;
+  background-color: #f5f5dc;
   text-align: center;
 }
 .toc div {
@@ -18,13 +17,13 @@
 }
 
 .content {
-  background-color: #f5f5dc; /* Warm beige background */
-  color: #333333; /* Dark grey text for easy contrast */
-  font-family: "Georgia", "Times New Roman", serif; /* Good reading fonts */
-  font-size: 18px; /* Slightly larger font for readability */
-  line-height: 1.6; /* Add space between lines for easier reading */
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 0 auto;
+  line-height: 1.6;
   margin: 0;
   padding: 20px;
+  background-color: #f5f5dc;
+  color: #333333;
 }
 .content ul {
   list-style-type: "- ";

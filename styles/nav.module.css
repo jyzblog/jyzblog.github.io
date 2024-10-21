@@ -1,9 +1,12 @@
 .nav {
-    margin: 0 auto;
-    width: 80%;
-    padding: 10px 0px;
-    /* text-align: center; */
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+  padding: 10px 0px;
+  background-color: #f5f5dc;
+
+  /* text-align: center; */
 }
 .nav a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
