@@ -14,7 +14,6 @@ function index() {
           <li>History</li>
           <li>Psychology</li>
           <li>Cryptography</li>
-          <li>Cybersecurity</li>
           <li>Hard sciences</li>
         </ul>
 
@@ -42,12 +41,7 @@ function index() {
 
         <h3>What I do:</h3>
         <ul>
-          <li>Golang, Rust, Node.js, Swift, React / React Native</li>
           <li>Exotic/unusual asset classes/commodities</li>
-          <li>
-            Federal Contracting: Interesting in prime/sub/joint ventures in the
-            areas of modernization, cloud, security
-          </li>
           <li>
             Angel investing: interested in niche businesses with persistent
             founders. Standard SAFE(yc)/KISS(500) possible
