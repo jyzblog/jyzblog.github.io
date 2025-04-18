@@ -51,7 +51,7 @@ function index() {
           </li>
         </ul>
 
-        <h3>Social:</h3>
+        <h3>Socials:</h3>
         <ul>
           <li>
             <a href="https://linkedin.com/in/josephyzhou">LinkedIn</a>
