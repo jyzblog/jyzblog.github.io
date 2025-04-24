@@ -28,6 +28,9 @@ function index() {
         <h3>What I've done:</h3>
         <ul>
           <li>
+            2x founder / exits, angel & LP.
+          </li>
+          <li>
             Advised various federal government agencies on modernization &
             security.
           </li>
@@ -47,7 +50,7 @@ function index() {
           </li>
         </ul>
 
-        <h3>What I do:</h3>
+        <h3>What I'm learning:</h3>
         <ul>
           <li>Exotic/unusual asset classes/commodities</li>
           <li>
@@ -56,7 +59,7 @@ function index() {
           </li>
         </ul>
 
-        <h3>Social:</h3>
+        <h3>Socials:</h3>
         <ul>
           <li>
             <a href="https://linkedin.com/in/josephyzhou">LinkedIn</a>
