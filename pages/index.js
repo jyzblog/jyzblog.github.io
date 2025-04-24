@@ -1,13 +1,21 @@
-import React, { Fragment } from 'react';
-import Nav from '../components/nav';
+import React, { Fragment } from "react";
+import Nav from "../components/nav";
 
-import styles from '../styles/content.module.css';
+import styles from "../styles/content.module.css";
 
 function index() {
   return (
     <Fragment>
       <Nav />
       <div className={styles.content}>
+        <h3>Real Wealth</h3>
+        <ul>
+          <li>Waking up without an alarm.</li>
+          <li>Having space to think clearly.</li>
+          <li>Living life at your own pace.</li>
+          <li>Finding joy in quiet moments.</li>
+          <li>Being surrounded by genuine love.</li>
+        </ul>
         <h3>My interests:</h3>
         <ul>
           <li>Economics</li>
