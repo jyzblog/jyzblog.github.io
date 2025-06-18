@@ -787,6 +787,12 @@ function books() {
             author="Geoffrey Cain"
             hashtags={['tech', 'chips', 'samsung']}
           />
+          <Book
+            title="Cage Kings"
+            address="https://www.amazon.com/Cage-Kings-Unlikely-Champions-Transformed/dp/1501198475"
+            author="Michael Thomsen"
+            hashtags={['sports', 'ufc']}
+          />
         </ul>
       </div>
     </Fragment>
