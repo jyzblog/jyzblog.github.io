@@ -59,8 +59,8 @@ async function createPost() {
   const description = `Excerpts from "${answers.bookTitle}" by ${answers.author}`;
 
   const frontmatter = `---
-title: postTitle
-description: description
+title: ${postTitle}
+description: ${description}
 date: ${date}
 ---
 
