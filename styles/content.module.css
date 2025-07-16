@@ -18,34 +18,89 @@
 
 .content {
   font-family: Georgia, "Times New Roman", Times, serif;
-  margin: 0 auto;
   line-height: 1.6;
-  margin: 0;
-  padding: 20px;
-  background-color: #f5f5dc;
+  background-color: #fcfcf7;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 32px 32px;
   color: #333333;
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
 }
+
+@media (max-width: 800px) {
+  .content {
+    padding: 16px 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.content ul,
+.content ol,
+.content p {
+  margin-bottom: 1.2em;
+}
+
 .content ul {
   list-style-type: "- ";
   padding-left: 15px;
 }
-.content a:hover {
-  text-decoration: none;
+
+.content a {
+  color: #0066cc;
+  text-decoration: underline;
+  transition: color 0.2s;
 }
-.content .post {
+
+.content a:hover {
+  color: #004999;
+  text-decoration: underline;
+}
+
+.content .post,
+.hashtags {
   font-size: smaller;
   padding: 3px;
-  font-weight: thin;
+  font-weight: 300;
   color: #888;
   margin-top: -2px;
 }
+
 .title {
   padding: 3px;
   font-weight: bold;
 }
-.hashtags {
-  font-size: smaller;
-  padding: 3px;
-  font-weight: thin;
-  color: #888;
+
+body[data-theme="dark"] .content {
+  background-color: #181a1b !important;
+  color: #eaeaea !important;
+}
+body[data-theme="dark"] .content a {
+  color: #4da3ff !important;
+}
+body[data-theme="dark"] .content a:hover {
+  color: #1e90ff !important;
+}
+body[data-theme="dark"] .content .post,
+body[data-theme="dark"] .hashtags {
+  color: #aaa !important;
+}
+
+body[data-theme="light"] .content {
+  background-color: #f5f5dc !important;
+  color: #333333 !important;
+}
+body[data-theme="light"] .content a {
+  color: #0066cc !important;
+}
+body[data-theme="light"] .content a:hover {
+  color: #004999 !important;
+}
+body[data-theme="light"] .content .post,
+body[data-theme="light"] .hashtags {
+  color: #888 !important;
 }

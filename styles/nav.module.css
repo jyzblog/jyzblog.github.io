@@ -1,11 +1,10 @@
 .nav {
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 18px 0 12px 0;
   text-align: center;
-  padding: 10px 0px;
-  background-color: #f5f5dc;
-
-  /* text-align: center; */
+  background-color: #f8f8e2;
+  border-bottom: 1px solid #e0e0c0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 .nav a:hover {
   text-decoration: none;
