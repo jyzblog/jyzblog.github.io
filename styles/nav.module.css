@@ -2,10 +2,38 @@
   margin: 0 auto;
   padding: 18px 0 12px 0;
   text-align: center;
-  background-color: #f8f8e2;
-  border-bottom: 1px solid #e0e0c0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  background-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background-color: #181a1b;
+  }
+}
+
+body[data-theme="dark"] .nav {
+  background-color: #181a1b !important;
+}
+body[data-theme="light"] .nav {
+  background-color: #f5f5dc !important;
 }
 .nav a:hover {
   text-decoration: none;
+}
+
+.nav a {
+  color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav a {
+    color: #eaeaea;
+  }
+}
+
+body[data-theme="dark"] .nav a {
+  color: #eaeaea !important;
+}
+body[data-theme="light"] .nav a {
+  color: #333 !important;
 }

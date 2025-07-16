@@ -5,7 +5,7 @@ import styles from '../styles/nav.module.css';
 
 function nav() {
   // Dark mode state and effect
-  const [theme, setTheme] = useState('system');
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
     // On mount, check localStorage
@@ -14,28 +14,20 @@ function nav() {
       setTheme(saved);
       document.body.setAttribute('data-theme', saved);
     } else {
-      setTheme('system');
-      document.body.removeAttribute('data-theme');
+      setTheme('light');
+      document.body.setAttribute('data-theme', 'light');
     }
   }, []);
 
   const toggleTheme = () => {
-    let nextTheme;
-    if (theme === 'dark') nextTheme = 'light';
-    else if (theme === 'light') nextTheme = 'system';
-    else nextTheme = 'dark';
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
-    if (nextTheme === 'system') {
-      localStorage.removeItem('theme');
-      document.body.removeAttribute('data-theme');
-    } else {
-      localStorage.setItem('theme', nextTheme);
-      document.body.setAttribute('data-theme', nextTheme);
-    }
+    localStorage.setItem('theme', nextTheme);
+    document.body.setAttribute('data-theme', nextTheme);
   };
 
-  const themeLabel = theme === 'system' ? '🌓' : theme === 'dark' ? '🌙' : '☀️';
-  const themeTitle = theme === 'system' ? 'System' : theme.charAt(0).toUpperCase() + theme.slice(1);
+  const themeLabel = theme === 'dark' ? '🌙' : '☀️';
+  const themeTitle = theme.charAt(0).toUpperCase() + theme.slice(1);
 
   return (
     <nav className={styles.nav}>
