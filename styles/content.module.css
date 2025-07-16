@@ -31,6 +31,232 @@ body[data-theme="light"] .toc {
   text-decoration: none;
 }
 
+/* Post Container */
+.postContainer {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+/* TOC Container */
+.tocContainer {
+  position: sticky;
+  top: 100px;
+  width: 280px;
+  height: calc(100vh - 120px);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  background-color: #fcfcf7;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  border: 1px solid #e8e8e8;
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Custom scrollbar for webkit browsers */
+.tocContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tocContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.tocContainer::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.tocContainer::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.tocTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+  border-bottom: 2px solid #0066cc;
+  padding-bottom: 8px;
+  position: sticky;
+  top: 0;
+  background-color: #fcfcf7;
+  z-index: 1;
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tocItem {
+  margin-bottom: 8px;
+}
+
+.tocLink {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.tocLink:hover {
+  background-color: #f0f0f0;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.tocActive .tocLink {
+  background-color: #0066cc;
+  color: white;
+  font-weight: 500;
+}
+
+/* Dark theme styles for TOC */
+@media (prefers-color-scheme: dark) {
+  .tocContainer {
+    background-color: #181a1b;
+    border-color: #333;
+  }
+  
+  .tocTitle {
+    color: #eaeaea;
+    border-bottom-color: #4da3ff;
+    background-color: #181a1b;
+  }
+  
+  .tocLink {
+    color: #ccc;
+  }
+  
+  .tocLink:hover {
+    background-color: #2a2a2a;
+    color: #4da3ff;
+  }
+  
+  .tocActive .tocLink {
+    background-color: #4da3ff;
+    color: #181a1b;
+  }
+}
+
+body[data-theme="dark"] .tocContainer {
+  background-color: #181a1b !important;
+  border-color: #333 !important;
+}
+
+body[data-theme="dark"] .tocTitle {
+  color: #eaeaea !important;
+  border-bottom-color: #4da3ff !important;
+  background-color: #181a1b !important;
+}
+
+body[data-theme="dark"] .tocLink {
+  color: #ccc !important;
+}
+
+body[data-theme="dark"] .tocLink:hover {
+  background-color: #2a2a2a !important;
+  color: #4da3ff !important;
+}
+
+body[data-theme="dark"] .tocActive .tocLink {
+  background-color: #4da3ff !important;
+  color: #181a1b !important;
+}
+
+body[data-theme="light"] .tocContainer {
+  background-color: #f5f5dc !important;
+  border-color: #e8e8e8 !important;
+}
+
+body[data-theme="light"] .tocTitle {
+  color: #333 !important;
+  border-bottom-color: #0066cc !important;
+  background-color: #f5f5dc !important;
+}
+
+body[data-theme="light"] .tocLink {
+  color: #555 !important;
+}
+
+body[data-theme="light"] .tocLink:hover {
+  background-color: #f0f0f0 !important;
+  color: #0066cc !important;
+}
+
+body[data-theme="light"] .tocActive .tocLink {
+  background-color: #0066cc !important;
+  color: white !important;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .postContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .tocContainer {
+    position: relative;
+    top: auto;
+    width: 100%;
+    order: -1;
+  }
+}
+
+@media (max-width: 800px) {
+  .postContainer {
+    padding: 0 10px;
+  }
+  
+  .tocContainer {
+    padding: 16px;
+  }
+  
+  .tocTitle {
+    font-size: 16px;
+  }
+  
+  .tocLink {
+    font-size: 13px;
+  }
+}
+
+/* Hide TOC on mobile, tablet, and iPad landscape */
+@media (max-width: 1024px) {
+  .tocContainer {
+    display: none;
+  }
+  
+  .postContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .content {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
 .content {
   font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 1.6;
@@ -44,6 +270,7 @@ body[data-theme="light"] .toc {
   font-size: 18px;
   max-width: 700px;
   margin: 0 auto;
+  flex: 1;
 }
 
 @media (max-width: 800px) {
