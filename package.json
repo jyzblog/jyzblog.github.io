@@ -11,14 +11,14 @@
     "new-post": "node scripts/new-post.mjs"
   },
   "dependencies": {
-    "next": "^14.0.0",
+    "date-fns": "^2.29.3",
+    "next": "^15.4.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-markdown": "^8.0.0",
     "remark": "^15.0.0",
     "remark-html": "^14.0.1",
-    "remark-preset-lint-markdown-style-guide": "^6.0.0",
-    "date-fns": "^2.29.3"
+    "remark-preset-lint-markdown-style-guide": "^6.0.0"
   },
   "license": "ISC",
   "devDependencies": {
