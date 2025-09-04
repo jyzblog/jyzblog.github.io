@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "npm run build && npx serve out",
+    "serve": "npx serve out",
     "deploy": "rm -rf node_modules/.cache && rm -rf out && next build && touch out/.nojekyll && touch out/CNAME && echo \"joeyzhou.com\" >> out/CNAME && gh-pages -d out",
     "new-post": "node scripts/new-post.mjs"
   },
