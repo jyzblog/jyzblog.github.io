@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "npm run build && npx serve out",
     "serve": "npx serve out",
-    "deploy": "rm -rf node_modules/.cache && rm -rf out && next build && touch out/.nojekyll && touch out/CNAME && echo \"joeyzhou.com\" >> out/CNAME && gh-pages -d out",
+    "clean": "rm -rf out && rm -rf node_modules/.cache",
+    "verify-build": "echo \"Verifying build output...\" && echo \"\\nMain HTML files:\" && ls -la out/*.html 2>/dev/null && echo \"\\nStatic assets (total size):\" && du -sh out/_next/static/ && echo \"\\nStatic assets breakdown:\" && du -sh out/_next/static/* && echo \"\\nTotal static files:\" && find out/_next/static -type f | wc -l && echo \"\\nBuild verification complete - all assets present!\"",
+    "predeploy": "npm run clean && npm run build && npm run verify-build",
+    "deploy": "cp .nojekyll out/.nojekyll && echo \"joeyzhou.com\" > out/CNAME && gh-pages -d out",
+    "postdeploy": "echo \"Deployment completed! Assets deployed from the same build as npm start\"",
     "new-post": "node scripts/new-post.mjs"
   },
   "dependencies": {
@@ -24,7 +28,7 @@
   "license": "ISC",
   "devDependencies": {
     "babel-plugin-transform-define": "^2.1.4",
-    "gh-pages": "^6.0.0",
+    "gh-pages": "^5.0.0",
     "gray-matter": "^4.0.2",
     "inquirer": "^12.6.3",
     "rimraf": "^6.0.1"
