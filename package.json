@@ -10,7 +10,7 @@
     "clean": "rm -rf out && rm -rf node_modules/.cache",
     "verify-build": "echo \"Verifying build output...\" && echo \"\\nMain HTML files:\" && ls -la out/*.html 2>/dev/null && echo \"\\nStatic assets (total size):\" && du -sh out/_next/static/ && echo \"\\nStatic assets breakdown:\" && du -sh out/_next/static/* && echo \"\\nTotal static files:\" && find out/_next/static -type f | wc -l && echo \"\\nBuild verification complete - all assets present!\"",
     "predeploy": "npm run clean && npm run build && npm run verify-build",
-    "deploy": "cp .nojekyll out/.nojekyll && echo \"joeyzhou.com\" > out/CNAME && gh-pages -d out",
+    "deploy": "echo \"\" > out/.nojekyll && echo \"joeyzhou.com\" > out/CNAME && npx gh-pages -d out --dotfiles",
     "postdeploy": "echo \"Deployment completed! Assets deployed from the same build as npm start\"",
     "new-post": "node scripts/new-post.mjs"
   },
