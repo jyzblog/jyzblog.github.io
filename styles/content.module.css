@@ -371,3 +371,65 @@ body[data-theme="dark"] .toc a, body[data-theme="dark"] .toc h4 {
 body[data-theme="light"] .toc a, body[data-theme="light"] .toc h4 {
   color: #333 !important;
 }
+
+/* Labels styling */
+.labels {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.label {
+  background: #f0f0f0;
+  color: #666;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.label:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+/* Dark theme for labels */
+@media (prefers-color-scheme: dark) {
+  .label {
+    background: #3a3a3a;
+    color: #aaa;
+    border-color: #555;
+  }
+  
+  .label:hover {
+    background: #4a4a4a;
+    color: #ccc;
+  }
+}
+
+body[data-theme="dark"] .label {
+  background: #3a3a3a !important;
+  color: #aaa !important;
+  border-color: #555 !important;
+}
+
+body[data-theme="dark"] .label:hover {
+  background: #4a4a4a !important;
+  color: #ccc !important;
+}
+
+body[data-theme="light"] .label {
+  background: #f0f0f0 !important;
+  color: #666 !important;
+  border-color: #e0e0e0 !important;
+}
+
+body[data-theme="light"] .label:hover {
+  background: #e0e0e0 !important;
+  color: #333 !important;
+}

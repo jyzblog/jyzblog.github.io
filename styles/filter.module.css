@@ -1,0 +1,145 @@
+.filterBar {
+  margin: 20px auto 30px auto;
+  max-width: 700px;
+  padding: 0 32px;
+}
+
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.filterButton {
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filterButton:hover {
+  background: #e8e8e8;
+  border-color: #ccc;
+  color: #333;
+}
+
+.filterButton.active {
+  background: #0066cc;
+  border-color: #0066cc;
+  color: white;
+}
+
+.filterButton.active:hover {
+  background: #004999;
+  border-color: #004999;
+}
+
+/* Dark theme styles */
+@media (prefers-color-scheme: dark) {
+  .filterButton {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #ccc;
+  }
+  
+  .filterButton:hover {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #eaeaea;
+  }
+  
+  .filterButton.active {
+    background: #4da3ff;
+    border-color: #4da3ff;
+    color: #181a1b;
+  }
+  
+  .filterButton.active:hover {
+    background: #1e90ff;
+    border-color: #1e90ff;
+  }
+}
+
+body[data-theme="dark"] .filterButton {
+  background: #2a2a2a !important;
+  border-color: #444 !important;
+  color: #ccc !important;
+}
+
+body[data-theme="dark"] .filterButton:hover {
+  background: #3a3a3a !important;
+  border-color: #555 !important;
+  color: #eaeaea !important;
+}
+
+body[data-theme="dark"] .filterButton.active {
+  background: #4da3ff !important;
+  border-color: #4da3ff !important;
+  color: #181a1b !important;
+}
+
+body[data-theme="dark"] .filterButton.active:hover {
+  background: #1e90ff !important;
+  border-color: #1e90ff !important;
+}
+
+body[data-theme="light"] .filterButton {
+  background: #f8f8f8 !important;
+  border-color: #e0e0e0 !important;
+  color: #666 !important;
+}
+
+body[data-theme="light"] .filterButton:hover {
+  background: #e8e8e8 !important;
+  border-color: #ccc !important;
+  color: #333 !important;
+}
+
+body[data-theme="light"] .filterButton.active {
+  background: #0066cc !important;
+  border-color: #0066cc !important;
+  color: white !important;
+}
+
+body[data-theme="light"] .filterButton.active:hover {
+  background: #004999 !important;
+  border-color: #004999 !important;
+}
+
+/* Responsive design */
+@media (max-width: 800px) {
+  .filterBar {
+    padding: 0 16px;
+    margin: 16px auto 24px auto;
+  }
+  
+  .filterContainer {
+    gap: 6px;
+  }
+  
+  .filterButton {
+    padding: 5px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .filterContainer {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .filterButton {
+    flex-shrink: 0;
+  }
+}
