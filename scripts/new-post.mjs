@@ -64,6 +64,7 @@ async function createPost() {
 title: ${postTitle}
 description: ${description}
 date: ${date}
+labels: ["book"]
 ---
 `;
 
