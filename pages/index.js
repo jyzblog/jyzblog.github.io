@@ -15,6 +15,7 @@ function index() {
           <li>Living life at your own pace.</li>
           <li>Finding joy in quiet moments.</li>
           <li>Being surrounded by genuine love.</li>
+          <li>Remaining curious.</li>
         </ul>
         <h3>My interests:</h3>
         <ul>
