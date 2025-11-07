@@ -8,7 +8,7 @@ function index() {
     <Fragment>
       <Nav />
       <div className={styles.content}>
-        <h3>Mottos</h3>
+        <h3>Real Wealth</h3>
         <ul>
           <li>Waking up without an alarm.</li>
           <li>Having space to think clearly.</li>
