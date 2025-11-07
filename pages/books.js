@@ -283,6 +283,12 @@ function books() {
             author="Li Lu"
             hashtags={['China', 'economics', 'history', 'investing']}
           />
+          <Book
+            title="The Art of Spending Money"
+            address="https://www.amazon.com/Art-Spending-Money-Simple-Choices/dp/B0F5585V8M/"
+            author="Morgan Housel"
+            hashtags={['investing', 'spending']}
+          />
         </ul>
         <h3 id="startup">Startup:</h3>
         <ul>
