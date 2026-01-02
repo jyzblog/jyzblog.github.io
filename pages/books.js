@@ -200,6 +200,12 @@ function books() {
             hashtags={['stock']}
           />
           <Book
+            title="When Genius Failed: The Rise and Fall of Long-Term Capital Management"
+            address="https://www.amazon.com/When-Genius-Failed-Long-Term-Management/dp/0375758259"
+            author="Roger Lowenstein"
+            hashtags={['banking', 'finance']}
+          />
+          <Book
             title="The Man Who Solved the Market: How Jim Simons Launched the Quant Revolution"
             address="https://amzn.to/3n40Lao"
             author="Gregory Zuckerman"
@@ -297,6 +303,12 @@ function books() {
             address="https://amzn.to/3k3w96Q"
             author="Peter Thiel"
             hashtags={['monopoly']}
+          />
+          <Book
+            title="7 Powers: The Foundations of Business Strategy"
+            address="https://www.amazon.com/7-Powers-Foundations-Business-Strategy/dp/0998116319"
+            author="Hamilton W. Helmer"
+            hashtags={['business', 'strategy', 'powers']}
           />
           <Book
             title="High Growth Handbook"
