@@ -37,17 +37,28 @@ function Post({ content, headings }) {
 export default Post;
 
 export async function getStaticProps({ params: { slug } }) {
-  const post = getPostBySlug(slug, ['title', 'date', 'slug', 'content']);
+  const post = getPostBySlug(slug, ['title', 'date', 'slug', 'content', 'description']);
   const markdownResult = await markdownToHtml(post?.content || '');
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = post.date.toLocaleDateString('en-US', options);
 
+  // Extract author from description field (format: "Excerpts from "Book Title" by Author Name")
+  let author = '';
+  if (post.description) {
+    const match = post.description.match(/by\s+(.+)$/);
+    if (match) {
+      author = match[1].trim();
+    }
+  }
+
   // Keep all headings from the markdown content (they're all content headings)
   const contentHeadings = markdownResult.headings;
 
+  const dateLine = author ? `*${author} | ${formattedDate}*` : `*${formattedDate}*`;
+
   return {
     props: {
-      content: `# ${post.title}\n*${formattedDate}*\n${post.content}`,
+      content: `# ${post.title}\n${dateLine}\n${post.content}`,
       headings: contentHeadings,
     },
   };
