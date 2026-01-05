@@ -148,6 +148,12 @@ function books() {
             author="Dorothy Dunnett"
             hashtags={['banking', 'economics']}
           />
+          <Book
+            title="1929: Inside the Greatest Crash in History--and How It Shattered a Nation"
+            address="https://www.goodreads.com/book/show/211179569-1929"
+            author="Andrew Ross Sorkin"
+            hashtags={['banking', 'economics', 'history', '1929']}
+          />
         </ul>
         <h3 id="investing">Investing:</h3>
         <ul>
