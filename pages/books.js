@@ -598,6 +598,12 @@ function books() {
             author="David Nasaw"
             hashtags={['United States', 'finance', 'oil']}
           />
+          <Book
+            title="Against the Odds"
+            address="https://www.goodreads.com/book/show/955045.Against_the_Odds"
+            author="James Dyson"
+            hashtags={['robotics', 'vacuum cleaners', 'technology']}
+          />
         </ul>
         <h3 id="industries">Industries:</h3>
         <ul>
