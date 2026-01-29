@@ -28,9 +28,9 @@ function Posts({posts, labels}) {
         />
       )}
       <div className={styles.content}>
-        {filteredPosts.map(({title, description, date, slug, labels: postLabels }) => (
-          <ul key={title}>
-            <li>
+        <ul>
+          {filteredPosts.map(({title, description, date, slug, labels: postLabels }) => (
+            <li key={title}>
               <strong>
                 <Link href={'/writings/[slug]'} as={`/writings/${slug}`} target="_blank" rel="noopener noreferrer">
                   {title}
@@ -48,8 +48,8 @@ function Posts({posts, labels}) {
               )}
               <p className={styles.post}>{description}</p>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
       </div>
     </Fragment>
   );

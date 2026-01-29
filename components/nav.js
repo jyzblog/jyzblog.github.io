@@ -8,14 +8,12 @@ function nav() {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    // On mount, check localStorage
+    // Sync React state with theme already set by blocking script in _document
     const saved = typeof window !== 'undefined' ? localStorage.getItem('theme') : null;
     if (saved === 'dark' || saved === 'light') {
       setTheme(saved);
-      document.body.setAttribute('data-theme', saved);
     } else {
       setTheme('light');
-      document.body.setAttribute('data-theme', 'light');
     }
   }, []);
 
@@ -23,7 +21,7 @@ function nav() {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
     localStorage.setItem('theme', nextTheme);
-    document.body.setAttribute('data-theme', nextTheme);
+    document.documentElement.setAttribute('data-theme', nextTheme);
   };
 
   const themeLabel = theme === 'dark' ? '🌙' : '☀️';

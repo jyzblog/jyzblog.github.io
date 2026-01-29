@@ -1,5 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
+import React, { Fragment } from 'react';
 import Nav from '../../components/nav';
 import TOC from '../../components/TOC';
 import styles from '../../styles/content.module.css';
@@ -7,28 +6,15 @@ import { getPostBySlug, getAllPosts } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 
 function Post({ content, headings }) {
-  useEffect(() => {
-    // Add IDs to headings after component mounts
-    if (headings && headings.length > 0) {
-      headings.forEach((heading) => {
-        const allHeadings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        allHeadings.forEach((element) => {
-          if (element.textContent.trim() === heading.text) {
-            element.id = heading.id;
-          }
-        });
-      });
-    }
-  }, [headings]);
-
   return (
     <Fragment>
       <Nav />
       <div className={styles.postContainer}>
         <TOC headings={headings} />
-        <article className={styles.content}>
-          <ReactMarkdown children={content} />
-        </article>
+        <article
+          className={styles.content}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </div>
     </Fragment>
   );
@@ -38,7 +24,6 @@ export default Post;
 
 export async function getStaticProps({ params: { slug } }) {
   const post = getPostBySlug(slug, ['title', 'date', 'slug', 'content', 'description']);
-  const markdownResult = await markdownToHtml(post?.content || '');
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = post.date.toLocaleDateString('en-US', options);
 
@@ -51,15 +36,14 @@ export async function getStaticProps({ params: { slug } }) {
     }
   }
 
-  // Keep all headings from the markdown content (they're all content headings)
-  const contentHeadings = markdownResult.headings;
-
   const dateLine = author ? `*${author} | ${formattedDate}*` : `*${formattedDate}*`;
+  const fullMarkdown = `# ${post.title}\n${dateLine}\n${post.content}`;
+  const markdownResult = await markdownToHtml(fullMarkdown);
 
   return {
     props: {
-      content: `# ${post.title}\n${dateLine}\n${post.content}`,
-      headings: contentHeadings,
+      content: markdownResult.html,
+      headings: markdownResult.headings,
     },
   };
 }

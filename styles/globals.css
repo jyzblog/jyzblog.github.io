@@ -8,9 +8,9 @@ body {
   }
 }
 
-body[data-theme="dark"] {
+html[data-theme="dark"] body {
   background: #181a1b !important;
 }
-body[data-theme="light"] {
+html[data-theme="light"] body {
   background: #f5f5dc !important;
 } 

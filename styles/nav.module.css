@@ -11,10 +11,10 @@
   }
 }
 
-body[data-theme="dark"] .nav {
+html[data-theme="dark"] .nav {
   background-color: #181a1b !important;
 }
-body[data-theme="light"] .nav {
+html[data-theme="light"] .nav {
   background-color: #f5f5dc !important;
 }
 .nav a:hover {
@@ -31,9 +31,9 @@ body[data-theme="light"] .nav {
   }
 }
 
-body[data-theme="dark"] .nav a {
+html[data-theme="dark"] .nav a {
   color: #eaeaea !important;
 }
-body[data-theme="light"] .nav a {
+html[data-theme="light"] .nav a {
   color: #333 !important;
 }

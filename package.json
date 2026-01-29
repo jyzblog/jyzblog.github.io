@@ -19,10 +19,10 @@
     "next": "^15.5.9",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-markdown": "^8.0.7",
+    "rehype-stringify": "^10.0.0",
     "remark": "^15.0.1",
-    "remark-html": "^14.0.1",
     "remark-preset-lint-markdown-style-guide": "^6.0.1",
+    "remark-rehype": "^11.0.0",
     "unist-util-visit": "^5.0.0"
   },
   "license": "ISC",

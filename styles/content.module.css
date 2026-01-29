@@ -13,10 +13,10 @@
   }
 }
 
-body[data-theme="dark"] .toc {
+html[data-theme="dark"] .toc {
   background-color: #181a1b !important;
 }
-body[data-theme="light"] .toc {
+html[data-theme="light"] .toc {
   background-color: #f5f5dc !important;
 }
 .toc div {
@@ -161,12 +161,12 @@ body[data-theme="light"] .toc {
   }
 }
 
-body[data-theme="dark"] .tocContainer {
+html[data-theme="dark"] .tocContainer {
   background-color: #181a1b !important;
   border-color: #333 !important;
 }
 
-body[data-theme="dark"] .tocTitle {
+html[data-theme="dark"] .tocTitle {
   color: #eaeaea !important;
   border-bottom-color: #4da3ff !important;
   background-color: #181a1b !important;
@@ -174,26 +174,26 @@ body[data-theme="dark"] .tocTitle {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
 }
 
-body[data-theme="dark"] .tocLink {
+html[data-theme="dark"] .tocLink {
   color: #ccc !important;
 }
 
-body[data-theme="dark"] .tocLink:hover {
+html[data-theme="dark"] .tocLink:hover {
   background-color: #2a2a2a !important;
   color: #4da3ff !important;
 }
 
-body[data-theme="dark"] .tocActive .tocLink {
+html[data-theme="dark"] .tocActive .tocLink {
   background-color: #4da3ff !important;
   color: #181a1b !important;
 }
 
-body[data-theme="light"] .tocContainer {
+html[data-theme="light"] .tocContainer {
   background-color: #f5f5dc !important;
   border-color: #e8e8e8 !important;
 }
 
-body[data-theme="light"] .tocTitle {
+html[data-theme="light"] .tocTitle {
   color: #333 !important;
   border-bottom-color: #0066cc !important;
   background-color: #f5f5dc !important;
@@ -201,16 +201,16 @@ body[data-theme="light"] .tocTitle {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-body[data-theme="light"] .tocLink {
+html[data-theme="light"] .tocLink {
   color: #555 !important;
 }
 
-body[data-theme="light"] .tocLink:hover {
+html[data-theme="light"] .tocLink:hover {
   background-color: #f0f0f0 !important;
   color: #0066cc !important;
 }
 
-body[data-theme="light"] .tocActive .tocLink {
+html[data-theme="light"] .tocActive .tocLink {
   background-color: #0066cc !important;
   color: white !important;
 }
@@ -325,33 +325,33 @@ body[data-theme="light"] .tocActive .tocLink {
   font-weight: bold;
 }
 
-body[data-theme="dark"] .content {
+html[data-theme="dark"] .content {
   background-color: #181a1b !important;
   color: #eaeaea !important;
 }
-body[data-theme="dark"] .content a {
+html[data-theme="dark"] .content a {
   color: #4da3ff !important;
 }
-body[data-theme="dark"] .content a:hover {
+html[data-theme="dark"] .content a:hover {
   color: #1e90ff !important;
 }
-body[data-theme="dark"] .content .post,
-body[data-theme="dark"] .hashtags {
+html[data-theme="dark"] .content .post,
+html[data-theme="dark"] .hashtags {
   color: #aaa !important;
 }
 
-body[data-theme="light"] .content {
+html[data-theme="light"] .content {
   background-color: #f5f5dc !important;
   color: #333333 !important;
 }
-body[data-theme="light"] .content a {
+html[data-theme="light"] .content a {
   color: #0066cc !important;
 }
-body[data-theme="light"] .content a:hover {
+html[data-theme="light"] .content a:hover {
   color: #004999 !important;
 }
-body[data-theme="light"] .content .post,
-body[data-theme="light"] .hashtags {
+html[data-theme="light"] .content .post,
+html[data-theme="light"] .hashtags {
   color: #888 !important;
 }
 
@@ -365,10 +365,10 @@ body[data-theme="light"] .hashtags {
   }
 }
 
-body[data-theme="dark"] .toc a, body[data-theme="dark"] .toc h4 {
+html[data-theme="dark"] .toc a, html[data-theme="dark"] .toc h4 {
   color: #eaeaea !important;
 }
-body[data-theme="light"] .toc a, body[data-theme="light"] .toc h4 {
+html[data-theme="light"] .toc a, html[data-theme="light"] .toc h4 {
   color: #333 !important;
 }
 
@@ -412,24 +412,24 @@ body[data-theme="light"] .toc a, body[data-theme="light"] .toc h4 {
   }
 }
 
-body[data-theme="dark"] .label {
+html[data-theme="dark"] .label {
   background: #3a3a3a !important;
   color: #aaa !important;
   border-color: #555 !important;
 }
 
-body[data-theme="dark"] .label:hover {
+html[data-theme="dark"] .label:hover {
   background: #4a4a4a !important;
   color: #ccc !important;
 }
 
-body[data-theme="light"] .label {
+html[data-theme="light"] .label {
   background: #f0f0f0 !important;
   color: #666 !important;
   border-color: #e0e0e0 !important;
 }
 
-body[data-theme="light"] .label:hover {
+html[data-theme="light"] .label:hover {
   background: #e0e0e0 !important;
   color: #333 !important;
 }
