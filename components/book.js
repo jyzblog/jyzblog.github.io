@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/content.module.css';
 
-function book(props) {
+function Book(props) {
   const hashtags = [...props.hashtags];
   const hashtagStr = hashtags.map((h) => `#${h}`).join(' ');
 
@@ -16,4 +16,4 @@ function book(props) {
   );
 }
 
-export default book;
+export default Book;

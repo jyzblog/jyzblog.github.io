@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from '../styles/nav.module.css';
 
-function nav() {
+function Nav() {
   // Dark mode state and effect
   const [theme, setTheme] = useState('light');
 
@@ -62,4 +62,4 @@ function nav() {
   );
 }
 
-export default nav;
+export default Nav;

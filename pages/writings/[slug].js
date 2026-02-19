@@ -4,7 +4,7 @@ import Nav from '../../components/nav';
 import TOC from '../../components/TOC';
 import styles from '../../styles/content.module.css';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
-import markdownToHtml from '../../lib/markdownToHtml';
+import { extractHeadings } from '../../lib/markdownToHtml';
 
 function Post({ content, headings }) {
   useEffect(() => {
@@ -36,13 +36,12 @@ function Post({ content, headings }) {
 
 export default Post;
 
-export async function getStaticProps({ params: { slug } }) {
+export function getStaticProps({ params: { slug } }) {
   const post = getPostBySlug(slug, ['title', 'date', 'slug', 'content', 'description']);
-  const markdownResult = await markdownToHtml(post?.content || '');
+  const contentHeadings = extractHeadings(post?.content || '');
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = post.date.toLocaleDateString('en-US', options);
 
-  // Extract author from description field (format: "Excerpts from "Book Title" by Author Name")
   let author = '';
   if (post.description) {
     const match = post.description.match(/by\s+(.+)$/);
@@ -50,9 +49,6 @@ export async function getStaticProps({ params: { slug } }) {
       author = match[1].trim();
     }
   }
-
-  // Keep all headings from the markdown content (they're all content headings)
-  const contentHeadings = markdownResult.headings;
 
   const dateLine = author ? `*${author} | ${formattedDate}*` : `*${formattedDate}*`;
 
@@ -67,10 +63,10 @@ export async function getStaticProps({ params: { slug } }) {
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug']);
   return {
-    paths: posts.map((posts) => {
+    paths: posts.map((post) => {
       return {
         params: {
-          slug: posts.slug,
+          slug: post.slug,
         },
       };
     }),

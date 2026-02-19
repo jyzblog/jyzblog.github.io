@@ -5,19 +5,16 @@ const TOC = ({ headings }) => {
   const [activeId, setActiveId] = useState('');
   const tocContainerRef = useRef(null);
   const activeItemRef = useRef(null);
-
-  console.log('TOC component received headings:', headings);
+  const observerRef = useRef(null);
 
   useEffect(() => {
     if (!headings || headings.length === 0) return;
 
-    // Wait for DOM to be ready and IDs to be added
     const timer = setTimeout(() => {
-      const observer = new IntersectionObserver(
+      observerRef.current = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              console.log('Section in view:', entry.target.id);
               setActiveId(entry.target.id);
             }
           });
@@ -28,21 +25,20 @@ const TOC = ({ headings }) => {
         }
       );
 
-      // Observe all headings
       headings.forEach((heading) => {
         const element = document.getElementById(heading.id);
         if (element) {
-          console.log('Observing element:', heading.id, element);
-          observer.observe(element);
-        } else {
-          console.log('Element not found for heading:', heading.id);
+          observerRef.current.observe(element);
         }
       });
+    }, 500);
 
-      return () => observer.disconnect();
-    }, 500); // Increased timeout to ensure IDs are added
-
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
   }, [headings]);
 
   // Auto-scroll TOC to keep active item visible
@@ -68,7 +64,6 @@ const TOC = ({ headings }) => {
       const isItemCentered = Math.abs(currentItemTop - (containerHeight - itemHeight) / 2) < 50;
       
       if (!isItemVisible || !isItemCentered) {
-        console.log('Scrolling TOC to center item:', activeId, 'from', containerScrollTop, 'to', idealScrollTop);
         container.scrollTo({
           top: Math.max(0, idealScrollTop),
           behavior: 'smooth'
@@ -80,23 +75,16 @@ const TOC = ({ headings }) => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      console.log('Scrolling to element:', id, element);
       element.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
-    } else {
-      console.log('Element not found for scrolling:', id);
     }
   };
 
   if (!headings || headings.length === 0) {
-    console.log('TOC: No headings found, returning null');
     return null;
   }
-
-  console.log('TOC: Rendering with headings:', headings);
-  console.log('TOC: Active ID:', activeId);
 
   return (
     <nav className={styles.tocContainer} ref={tocContainerRef}>

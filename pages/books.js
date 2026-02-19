@@ -3,7 +3,7 @@ import Nav from '../components/nav';
 import Book from '../components/book';
 import styles from '../styles/content.module.css';
 
-function books() {
+function Books() {
   return (
     <Fragment>
       <Nav />
@@ -835,4 +835,4 @@ function books() {
   );
 }
 
-export default books;
+export default Books;

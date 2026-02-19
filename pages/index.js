@@ -3,7 +3,7 @@ import Nav from "../components/nav";
 
 import styles from "../styles/content.module.css";
 
-function index() {
+function HomePage() {
   return (
     <Fragment>
       <Nav />
@@ -76,4 +76,4 @@ function index() {
   );
 }
 
-export default index;
+export default HomePage;

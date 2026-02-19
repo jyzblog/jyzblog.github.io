@@ -215,39 +215,6 @@ body[data-theme="light"] .tocActive .tocLink {
   color: white !important;
 }
 
-/* Responsive design */
-@media (max-width: 1024px) {
-  .postContainer {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .tocContainer {
-    position: relative;
-    top: auto;
-    width: 100%;
-    order: -1;
-  }
-}
-
-@media (max-width: 800px) {
-  .postContainer {
-    padding: 0 10px;
-  }
-  
-  .tocContainer {
-    padding: 16px;
-  }
-  
-  .tocTitle {
-    font-size: 16px;
-  }
-  
-  .tocLink {
-    font-size: 13px;
-  }
-}
-
 /* Hide TOC on mobile, tablet, and iPad landscape */
 @media (max-width: 1024px) {
   .tocContainer {
@@ -262,6 +229,12 @@ body[data-theme="light"] .tocActive .tocLink {
   .content {
     margin: 0 auto;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .postContainer {
+    padding: 0 10px;
   }
 }
 
