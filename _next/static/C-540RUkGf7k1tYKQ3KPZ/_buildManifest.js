@@ -1,18 +1,21 @@
 self.__BUILD_MANIFEST = {
   "/": [
-    "static/chunks/a4d019bc8db3024e.js"
+    "static/chunks/d2362dc6b8f3058d.js"
+  ],
+  "/404": [
+    "static/chunks/4ad35217d16998c2.js"
   ],
   "/_error": [
     "static/chunks/23d94008a6922e19.js"
   ],
   "/books": [
-    "static/chunks/51dace8ea8122f07.js"
+    "static/chunks/7aae370429a82cd4.js"
   ],
   "/writings": [
-    "static/chunks/ada307badeb77a5e.js"
+    "static/chunks/6c3566264ef74180.js"
   ],
   "/writings/[slug]": [
-    "static/chunks/0485ceaaef0635f0.js"
+    "static/chunks/e8aded0d4e1af9f1.js"
   ],
   "__rewrites": {
     "afterFiles": [],
@@ -21,6 +24,7 @@ self.__BUILD_MANIFEST = {
   },
   "sortedPages": [
     "/",
+    "/404",
     "/_app",
     "/_error",
     "/books",
