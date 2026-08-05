@@ -292,11 +292,13 @@ export default function AudioPlayer({ content, slug }) {
     setStatusDetail('Loading voice model…');
 
     try {
-      const [{ markdownToSpeech }, { loadKokoro, streamSpeech, getKokoroDevice }] =
-        await Promise.all([
-          import('../lib/markdownToSpeech'),
-          import('../lib/kokoroEngine'),
-        ]);
+      const [
+        { markdownToSpeech },
+        { loadKokoro, streamSpeech, getKokoroDevice },
+      ] = await Promise.all([
+        import('../lib/markdownToSpeech'),
+        import('../lib/kokoroEngine'),
+      ]);
 
       const text = markdownToSpeech(content);
       if (!text.trim()) {
@@ -306,10 +308,10 @@ export default function AudioPlayer({ content, slug }) {
       await loadKokoro((info) => {
         if (info.status === 'progress' && typeof info.progress === 'number') {
           setStatusDetail(`Downloading voice… ${Math.round(info.progress)}%`);
-        } else if (info.status === 'done') {
+        } else if (info.status === 'done' || info.status === 'loading') {
           setStatusDetail('Preparing voice…');
         }
-      });
+      }, controller.signal);
 
       if (controller.signal.aborted) return;
 
@@ -317,19 +319,32 @@ export default function AudioPlayer({ content, slug }) {
       setStatus('generating');
       setStatusDetail(
         device === 'webgpu'
-          ? 'Generating audio (GPU)…'
-          : 'Generating audio (CPU)…',
+          ? 'Starting playback (GPU)…'
+          : 'Starting playback (CPU)…',
       );
 
-      await player.play();
-
       let chunkCount = 0;
+      let startedPlayback = false;
+
       await streamSpeech(text, {
         signal: controller.signal,
+        getBufferedAheadSeconds: () => {
+          const buffered = player.getBufferedDuration();
+          const current = player.getCurrentTime();
+          return Math.max(0, buffered - current);
+        },
         onChunk: ({ audio, samplingRate }) => {
           player.append(audio, samplingRate);
           chunkCount += 1;
-          setStatusDetail(`Generating… (${chunkCount} segments)`);
+
+          if (!startedPlayback) {
+            startedPlayback = true;
+            player.play();
+          }
+
+          setStatusDetail(
+            `Playing — buffering ahead (${chunkCount} segments)`,
+          );
         },
       });
 
