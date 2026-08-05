@@ -245,7 +245,13 @@ function usePcmPlayer() {
   };
 }
 
-export default function AudioPlayer({ content, slug }) {
+export default function AudioPlayer({
+  content,
+  slug,
+  speakRequest = null,
+  onSpeakRequestHandled,
+  onActiveLabelChange,
+}) {
   const player = usePcmPlayer();
   const [status, setStatus] = useState('idle');
   const [statusDetail, setStatusDetail] = useState('');
@@ -256,6 +262,10 @@ export default function AudioPlayer({ content, slug }) {
   const [error, setError] = useState(null);
   const abortRef = useRef(null);
   const generatingRef = useRef(false);
+  const speakRequestHandledRef = useRef(onSpeakRequestHandled);
+  const activeLabelChangeRef = useRef(onActiveLabelChange);
+  speakRequestHandledRef.current = onSpeakRequestHandled;
+  activeLabelChangeRef.current = onActiveLabelChange;
 
   useEffect(() => {
     return player.subscribe(() => {
@@ -277,92 +287,115 @@ export default function AudioPlayer({ content, slug }) {
     setPlaying(false);
     setCurrentTime(0);
     setDuration(0);
+    activeLabelChangeRef.current?.(null);
   }, [slug, content]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const startGeneration = useCallback(async () => {
-    if (generatingRef.current || !content?.trim()) return;
+  const startGeneration = useCallback(
+    async (markdownOverride, label) => {
+      const source = markdownOverride ?? content;
+      if (!source?.trim()) return;
 
-    generatingRef.current = true;
-    const controller = new AbortController();
-    abortRef.current = controller;
+      // Allow restarting mid-generation (e.g. switching to a chapter)
+      abortRef.current?.abort();
+      const controller = new AbortController();
+      abortRef.current = controller;
+      generatingRef.current = true;
 
-    player.reset();
-    setError(null);
-    setStatus('loading');
-    setStatusDetail('Loading voice model…');
+      activeLabelChangeRef.current?.(label || null);
 
-    try {
-      const [
-        { markdownToSpeech },
-        { loadKokoro, streamSpeech, getKokoroDevice },
-      ] = await Promise.all([
-        import('../lib/markdownToSpeech'),
-        import('../lib/kokoroEngine'),
-      ]);
-
-      const text = markdownToSpeech(content);
-      if (!text.trim()) {
-        throw new Error('Nothing to read in this post.');
-      }
-
-      await loadKokoro((info) => {
-        if (info.status === 'progress' && typeof info.progress === 'number') {
-          setStatusDetail(`Downloading voice… ${Math.round(info.progress)}%`);
-        } else if (info.status === 'done' || info.status === 'loading') {
-          setStatusDetail('Preparing voice…');
-        }
-      }, controller.signal);
-
-      if (controller.signal.aborted) return;
-
-      const device = getKokoroDevice();
-      setStatus('generating');
+      player.reset();
+      setError(null);
+      setStatus('loading');
       setStatusDetail(
-        device === 'webgpu'
-          ? 'Starting playback (GPU)…'
-          : 'Starting playback (CPU)…',
+        label ? `Loading voice for “${label}”…` : 'Loading voice model…',
       );
 
-      let chunkCount = 0;
-      let startedPlayback = false;
+      try {
+        const [
+          { markdownToSpeech },
+          { loadKokoro, streamSpeech, getKokoroDevice },
+        ] = await Promise.all([
+          import('../lib/markdownToSpeech'),
+          import('../lib/kokoroEngine'),
+        ]);
 
-      await streamSpeech(text, {
-        signal: controller.signal,
-        getBufferedAheadSeconds: () => {
-          const buffered = player.getBufferedDuration();
-          const current = player.getCurrentTime();
-          return Math.max(0, buffered - current);
-        },
-        onChunk: ({ audio, samplingRate }) => {
-          player.append(audio, samplingRate);
-          chunkCount += 1;
+        const text = markdownToSpeech(source);
+        if (!text.trim()) {
+          throw new Error('Nothing to read in this post.');
+        }
 
-          if (!startedPlayback) {
-            startedPlayback = true;
-            player.play();
+        await loadKokoro((info) => {
+          if (info.status === 'progress' && typeof info.progress === 'number') {
+            setStatusDetail(
+              `Downloading voice… ${Math.round(info.progress)}%`,
+            );
+          } else if (info.status === 'done' || info.status === 'loading') {
+            setStatusDetail('Preparing voice…');
           }
+        }, controller.signal);
 
-          setStatusDetail(
-            `Playing — buffering ahead (${chunkCount} segments)`,
-          );
-        },
-      });
+        if (controller.signal.aborted) return;
 
-      if (controller.signal.aborted) return;
+        const device = getKokoroDevice();
+        setStatus('generating');
+        setStatusDetail(
+          device === 'webgpu'
+            ? 'Starting playback (GPU)…'
+            : 'Starting playback (CPU)…',
+        );
 
-      setStatus('ready');
-      setStatusDetail('Ready');
-    } catch (err) {
-      if (err?.name === 'AbortError') return;
-      console.error('TTS error:', err);
-      setError(err?.message || 'Failed to generate audio');
-      setStatus('error');
-      setStatusDetail('');
-      player.pause();
-    } finally {
-      generatingRef.current = false;
-    }
-  }, [player, content]);
+        let chunkCount = 0;
+        let startedPlayback = false;
+
+        await streamSpeech(text, {
+          signal: controller.signal,
+          getBufferedAheadSeconds: () => {
+            const buffered = player.getBufferedDuration();
+            const current = player.getCurrentTime();
+            return Math.max(0, buffered - current);
+          },
+          onChunk: ({ audio, samplingRate }) => {
+            player.append(audio, samplingRate);
+            chunkCount += 1;
+
+            if (!startedPlayback) {
+              startedPlayback = true;
+              player.play();
+            }
+
+            setStatusDetail(
+              label
+                ? `Playing chapter — buffering (${chunkCount} segments)`
+                : `Playing — buffering ahead (${chunkCount} segments)`,
+            );
+          },
+        });
+
+        if (controller.signal.aborted) return;
+
+        setStatus('ready');
+        setStatusDetail(label ? `Ready — ${label}` : 'Ready');
+      } catch (err) {
+        if (err?.name === 'AbortError') return;
+        console.error('TTS error:', err);
+        setError(err?.message || 'Failed to generate audio');
+        setStatus('error');
+        setStatusDetail('');
+        player.pause();
+      } finally {
+        if (abortRef.current === controller) {
+          generatingRef.current = false;
+        }
+      }
+    },
+    [player, content],
+  );
+
+  useEffect(() => {
+    if (!speakRequest?.markdown) return;
+    startGeneration(speakRequest.markdown, speakRequest.label);
+    speakRequestHandledRef.current?.();
+  }, [speakRequest, startGeneration]);
 
   const handlePlayPause = async () => {
     if (status === 'idle' || status === 'error') {
@@ -394,6 +427,7 @@ export default function AudioPlayer({ content, slug }) {
     setStatus('idle');
     setStatusDetail('');
     setError(null);
+    activeLabelChangeRef.current?.(null);
   };
 
   if (!content?.trim()) return null;

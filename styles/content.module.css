@@ -371,6 +371,66 @@ body[data-theme="light"] .audioPlayer {
   }
 }
 
+/* Per-chapter TTS button */
+.chapterHeading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35em 0.45em;
+}
+
+.chapterTitleText {
+  min-width: 0;
+}
+
+.chapterSpeakBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.55em;
+  height: 1.55em;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  top: 0.05em;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.chapterSpeakBtn:hover {
+  color: #0066cc;
+  border-color: #cfe0f5;
+  background: rgba(0, 102, 204, 0.06);
+}
+
+.chapterSpeakBtnActive {
+  color: #0066cc;
+  border-color: #9fc4ef;
+  background: rgba(0, 102, 204, 0.1);
+}
+
+.chapterSpeakIcon {
+  display: block;
+  width: 0.85em;
+  height: 0.85em;
+}
+
+body[data-theme="dark"] .chapterSpeakBtn {
+  color: #999 !important;
+}
+
+body[data-theme="dark"] .chapterSpeakBtn:hover,
+body[data-theme="dark"] .chapterSpeakBtnActive {
+  color: #4da3ff !important;
+  border-color: #3a5a7a !important;
+  background: rgba(77, 163, 255, 0.12) !important;
+}
+
 @media (max-width: 800px) {
   .content {
     padding: 16px 8px;
