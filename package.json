@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "npm run build && npx serve out",
     "serve": "npx serve out",
     "clean": "rm -rf out && rm -rf node_modules/.cache",

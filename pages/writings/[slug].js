@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import ReactMarkdown from 'react-markdown';
 import Nav from '../../components/nav';
 import TOC from '../../components/TOC';
@@ -6,7 +7,11 @@ import styles from '../../styles/content.module.css';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import { extractHeadings } from '../../lib/markdownToHtml';
 
-function Post({ content, headings }) {
+const AudioPlayer = dynamic(() => import('../../components/AudioPlayer'), {
+  ssr: false,
+});
+
+function Post({ content, headings, slug }) {
   useEffect(() => {
     // Add IDs to headings after component mounts
     if (headings && headings.length > 0) {
@@ -27,6 +32,7 @@ function Post({ content, headings }) {
       <div className={styles.postContainer}>
         <TOC headings={headings} />
         <article className={styles.content}>
+          <AudioPlayer content={content} slug={slug} />
           <ReactMarkdown children={content} />
         </article>
       </div>
@@ -56,6 +62,7 @@ export function getStaticProps({ params: { slug } }) {
     props: {
       content: `# ${post.title}\n${dateLine}\n${post.content}`,
       headings: contentHeadings,
+      slug,
     },
   };
 }

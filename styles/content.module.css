@@ -254,6 +254,123 @@ body[data-theme="light"] .tocActive .tocLink {
   flex: 1;
 }
 
+/* In-browser TTS player */
+.audioPlayer {
+  margin: 0 0 1.5em 0;
+  padding: 12px 14px;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.audioControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.audioPlayBtn,
+.audioSpeedBtn,
+.audioStopBtn {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 14px;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.audioPlayBtn:hover,
+.audioSpeedBtn:hover,
+.audioStopBtn:hover {
+  border-color: #0066cc;
+  color: #0066cc;
+}
+
+.audioPlayBtn:disabled,
+.audioSpeedBtn:disabled,
+.audioStopBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.audioProgressWrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.audioSeek {
+  width: 100%;
+  accent-color: #0066cc;
+  cursor: pointer;
+}
+
+.audioTime {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #888;
+  font-variant-numeric: tabular-nums;
+}
+
+.audioStatus {
+  margin: 8px 0 0 0;
+  font-size: 13px;
+  color: #666;
+}
+
+body[data-theme="dark"] .audioPlayer {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: #333 !important;
+}
+
+body[data-theme="dark"] .audioPlayBtn,
+body[data-theme="dark"] .audioSpeedBtn,
+body[data-theme="dark"] .audioStopBtn {
+  background: #222 !important;
+  border-color: #444 !important;
+  color: #eaeaea !important;
+}
+
+body[data-theme="dark"] .audioPlayBtn:hover,
+body[data-theme="dark"] .audioSpeedBtn:hover,
+body[data-theme="dark"] .audioStopBtn:hover {
+  border-color: #4da3ff !important;
+  color: #4da3ff !important;
+}
+
+body[data-theme="dark"] .audioSeek {
+  accent-color: #4da3ff;
+}
+
+body[data-theme="dark"] .audioTime,
+body[data-theme="dark"] .audioStatus {
+  color: #aaa !important;
+}
+
+body[data-theme="light"] .audioPlayer {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: #e8e8e8 !important;
+}
+
+@media (max-width: 800px) {
+  .audioControls {
+    flex-wrap: wrap;
+  }
+
+  .audioProgressWrap {
+    order: 3;
+    flex-basis: 100%;
+  }
+}
+
 @media (max-width: 800px) {
   .content {
     padding: 16px 8px;

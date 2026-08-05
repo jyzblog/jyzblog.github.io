@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   turbopack: {},
-  webpack: (config, { dev }) => {
+  webpack: (config) => {
     config.module.rules.forEach(rule => {
       if (rule.use && rule.use.loader === 'babel-loader') {
         rule.use.options.cacheDirectory = false;
