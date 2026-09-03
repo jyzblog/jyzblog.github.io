@@ -154,6 +154,35 @@ function Books() {
             author="Andrew Ross Sorkin"
             hashtags={['banking', 'economics', 'history', '1929']}
           />
+          <Book
+            title="How Asia Works: Success and Failure in the World's Most Dynamic Region"
+            address="https://www.amazon.com/How-Asia-Works-Success-Failure/dp/080211959X"
+            author="Joe Studwell"
+            hashtags={['Asia', 'economics', 'development', 'industrial policy']}
+          />
+          <Book
+            title="How Africa Works: Success and Failure on the World's Last Developmental Frontier"
+            address="https://www.amazon.com/How-Africa-Works-author/dp/0802158439"
+            author="Joe Studwell"
+            hashtags={[
+              'Africa',
+              'economics',
+              'development',
+              'industrial policy',
+            ]}
+          />
+          <Book
+            title="The Secret History of the World"
+            address="https://www.amazon.com/Secret-History-World-Mark-Booth/dp/1590201626"
+            author="Mark Booth"
+            hashtags={['civilization', 'esoterica', 'secret societies']}
+          />
+          <Book
+            title="A Short History of Russia: How the World's Largest Country Invented Itself, from the Pagans to Putin"
+            address="https://www.amazon.com/Short-History-Russia-Largest-Invented/dp/1335475214"
+            author="Mark Galeotti"
+            hashtags={['Russia', 'Europe', 'politics']}
+          />
         </ul>
         <h3 id="investing">Investing:</h3>
         <ul>
@@ -828,6 +857,12 @@ function Books() {
             address="https://a.co/d/9jc0PqS"
             author="Tom Lewis"
             hashtags={['radio', 'history']}
+          />
+          <Book
+            title="The Marvel Studios Story: How a Failing Comic Book Publisher Became a Hollywood Superhero"
+            address="https://www.amazon.com/Marvel-Studios-Story-Publisher-Hollywood/dp/1400232775"
+            author="Charlie Wetzel, Stephanie Wetzel"
+            hashtags={['film', 'marvel', 'disney']}
           />
         </ul>
       </div>
