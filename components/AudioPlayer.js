@@ -128,6 +128,13 @@ function usePcmPlayer() {
     rafRef.current = requestAnimationFrame(tick);
   }, [getCurrentTime, notify]);
 
+  const unlock = useCallback(() => {
+    const ctx = ensureCtx();
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(() => {});
+    }
+  }, [ensureCtx]);
+
   const play = useCallback(async () => {
     const ctx = ensureCtx();
     if (ctx.state === 'suspended') await ctx.resume();
@@ -232,6 +239,7 @@ function usePcmPlayer() {
 
   return {
     append,
+    unlock,
     play,
     pause,
     seek,
@@ -304,6 +312,7 @@ export default function AudioPlayer({
       activeLabelChangeRef.current?.(label || null);
 
       player.reset();
+      player.unlock();
       setError(null);
       setStatus('loading');
       setStatusDetail(
@@ -313,10 +322,10 @@ export default function AudioPlayer({
       try {
         const [
           { markdownToSpeech },
-          { loadKokoro, streamSpeech, getKokoroDevice },
+          { loadTts, streamSpeech, getTtsDevice },
         ] = await Promise.all([
           import('../lib/markdownToSpeech'),
-          import('../lib/kokoroEngine'),
+          import('../lib/ttsEngine'),
         ]);
 
         const text = markdownToSpeech(source);
@@ -324,7 +333,7 @@ export default function AudioPlayer({
           throw new Error('Nothing to read in this post.');
         }
 
-        await loadKokoro((info) => {
+        await loadTts((info) => {
           if (info.status === 'progress' && typeof info.progress === 'number') {
             setStatusDetail(
               `Downloading voice… ${Math.round(info.progress)}%`,
@@ -336,7 +345,7 @@ export default function AudioPlayer({
 
         if (controller.signal.aborted) return;
 
-        const device = getKokoroDevice();
+        const device = getTtsDevice();
         setStatus('generating');
         setStatusDetail(
           device === 'webgpu'
@@ -344,7 +353,7 @@ export default function AudioPlayer({
             : 'Starting playback (CPU)…',
         );
 
-        let chunkCount = 0;
+        let lastSegment = 0;
         let startedPlayback = false;
 
         await streamSpeech(text, {
@@ -354,20 +363,23 @@ export default function AudioPlayer({
             const current = player.getCurrentTime();
             return Math.max(0, buffered - current);
           },
-          onChunk: ({ audio, samplingRate }) => {
+          onChunk: ({ audio, samplingRate, index }) => {
             player.append(audio, samplingRate);
-            chunkCount += 1;
 
             if (!startedPlayback) {
               startedPlayback = true;
               player.play();
             }
 
-            setStatusDetail(
-              label
-                ? `Playing chapter — buffering (${chunkCount} segments)`
-                : `Playing — buffering ahead (${chunkCount} segments)`,
-            );
+            const segmentNum = (index ?? 0) + 1;
+            if (segmentNum !== lastSegment) {
+              lastSegment = segmentNum;
+              setStatusDetail(
+                label
+                  ? `Playing chapter — buffering (${segmentNum} segments)`
+                  : `Playing — buffering ahead (${segmentNum} segments)`,
+              );
+            }
           },
         });
 

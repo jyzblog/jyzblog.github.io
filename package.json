@@ -12,10 +12,12 @@
     "predeploy": "npm run clean && npm run build && npm run verify-build",
     "deploy": "echo \"\" > out/.nojekyll && echo \"joeyzhou.com\" > out/CNAME && npx gh-pages -d out --dotfiles",
     "postdeploy": "echo \"Deployment completed! Assets deployed from the same build as npm start\"",
+    "postinstall": "rm -rf public/phonon && mkdir -p public/phonon && cp node_modules/phonon-webgpu/dist/phonon.js public/phonon/ && cp -r node_modules/phonon-webgpu/dist/cpu public/phonon/",
     "new-post": "node scripts/new-post.mjs"
   },
   "dependencies": {
     "next": "^16.3.6",
+    "phonon-webgpu": "github:blixt/phonon#36e7e5eff820733be38e9df19ccf58ae891bd45c",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-markdown": "^10.1.0"
